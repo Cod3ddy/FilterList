@@ -55,7 +55,10 @@ class UserInteraction {
   void getSearchText(String searchText) {
     filteredList = sample
         .where((note) =>
-            note.title.toLowerCase().contains(searchText.toLowerCase()))
+            //filter by title
+            note.title.toLowerCase().contains(searchText.toLowerCase()) ||
+            //filter by content(body)
+            note.content.toLowerCase().contains(searchText.toLowerCase()))
         .toList();
   }
 }
